@@ -1,0 +1,16 @@
+<h1>Are you OK?</h1>
+
+<%=form_with(model: @post,url:posts_path,local: true)do |f|%>
+  <%=f.hidden_field :title%>
+  <%=f.hidden_field :content%>
+
+  <p>Title:<%=@post.title%></p>
+  <p>Content: <%=@post.content%></p>
+  <%=f.submit "OK!!"%>
+<% end %>
+
+<%=form_with(model:@post,url:new_post_path,local:true,method:'get')do |f|%>
+  <%=f.hidden_field :title%>
+  <%=f.hidden_field :content%>
+  <%=f.submit "Back",name:'back'%>
+<% end %>

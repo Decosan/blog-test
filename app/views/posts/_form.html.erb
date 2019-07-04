@@ -1,0 +1,27 @@
+<%=form_with(model: post,local: true,url:choose_new_or_edit) do |f|%>
+
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h4><%=post.errors.count%>件のエラーがあります。</h4>
+      <ul>
+        <% post.errors.full_messages.each do |msg|%>
+          <li><%=msg%></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='title_group'>
+    <%=f.label :title,"Title"%>
+    <%=f.text_field :title %>
+  </div>
+
+  <div class='content_group'>
+    <%=f.label :content,"Content"%>
+    <%=f.text_field :content %>
+  </div>
+
+  <%=f.submit 'Create'%>
+
+<% end %>
+<%= link_to "ブログ一覧画面にもどる", posts_path %>
